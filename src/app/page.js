@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function HomePage() {
   const [weatherData, setWeatherData] = useState(null);
@@ -11,6 +13,10 @@ export default function HomePage() {
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
     const fetchWeather = async () => {
       try {
         const response = await fetch(
@@ -67,7 +73,10 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col md:flex-row md:justify-between md:items-center min-h-screen bg-gradient-to-l from-sky-500 to-sky-300 py-12 px-6 gap-8 relative">
-      <div className="flex-grow flex-shrink w-full max-w-sm mx-auto">
+      <div
+        className="flex-grow flex-shrink w-full max-w-sm mx-auto"
+        data-aos="fade-up"
+      >
         <h1 className="text-3xl font-bold mb-6 text-center">Awan Pintar ☀️</h1>
         {/* Input untuk mencari kota lain */}
         <input
@@ -101,7 +110,11 @@ export default function HomePage() {
         )}
       </div>
       {/* Form Saran */}
-      <div className="flex-grow flex-shrink w-full max-w-sm p-6 bg-gray-100 rounded-lg shadow-lg mx-auto">
+      <div
+        className="flex-grow flex-shrink w-full max-w-sm p-6 bg-gray-100 rounded-lg shadow-lg mx-auto"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         <h2 className="text-2xl font-semibold text-center">Saran</h2>
         <h4 className="text-md font-regular mb-4 text-left">
           Website ini sedang dalam tahap pengembangan. Kami sangat menghargai
