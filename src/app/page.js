@@ -49,7 +49,6 @@ export default function HomePage() {
         headers: {
           "Content-Type": "application/json",
         },
-        // Formspree membutuhkan data dalam format FormData atau JSON
         body: JSON.stringify({ saran_pengguna: suggestion }),
       });
 
@@ -118,7 +117,7 @@ export default function HomePage() {
         <h2 className="text-2xl font-semibold text-center">Saran</h2>
         <h4 className="text-md font-regular mb-4 text-left">
           Website ini sedang dalam tahap pengembangan. Kami sangat menghargai
-          setiap masukan Anda untuk fitur-fitur baru
+          setiap masukan kamu untuk fitur-fitur baru
         </h4>
         <form onSubmit={handleSuggestionSubmit} className="flex flex-col gap-4">
           <textarea
@@ -127,7 +126,6 @@ export default function HomePage() {
             placeholder="Saran kamu di sini..."
             rows="4"
             className="w-full p-3 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-sky-500"
-            // Atribut `name` tidak lagi diperlukan untuk `fetch`
           ></textarea>
           <button
             type="submit"
@@ -143,7 +141,7 @@ export default function HomePage() {
         )}
       </div>
 
-      {/* Pop-up Kustom */}
+      {/* Pop-up */}
       {isPopupVisible && (
         <div className="fixed inset-0 bg-gray-800/70 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full text-center transform scale-100 transition-transform duration-300 ease-out">
