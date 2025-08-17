@@ -120,7 +120,7 @@ export default function HomePage() {
           ></textarea>
           <button
             type="submit"
-            className="bg-sky-500 text-white font-bold py-2 px-4 rounded-md hover:bg-sky-600 transition-colors"
+            className="bg-sky-500 text-white font-bold py-2 px-4 rounded-md hover:bg-sky-600 transition-colors cursor-pointer"
           >
             Kirim Saran
           </button>
@@ -134,7 +134,7 @@ export default function HomePage() {
 
       {/* Pop-up Kustom */}
       {isPopupVisible && (
-        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center p-4 z-50">
+        <div className="fixed inset-0 bg-gray-800/70 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full text-center transform scale-100 transition-transform duration-300 ease-out">
             <h3 className="text-2xl font-bold text-sky-600 mb-4">
               Terima Kasih!
@@ -145,7 +145,7 @@ export default function HomePage() {
             </p>
             <button
               onClick={() => setIsPopupVisible(false)}
-              className="bg-sky-500 text-white font-bold py-2 px-4 rounded-md hover:bg-sky-600 transition-colors"
+              className="bg-sky-500 text-white font-bold py-2 px-4 rounded-md hover:bg-sky-600 transition-colors cursor-pointer"
             >
               Tutup
             </button>
