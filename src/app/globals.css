@@ -1,19 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/*
-  Di bawah ini adalah style kustom yang bisa Anda tambahkan.
-  Misalnya, untuk mengatur font atau warna latar belakang dasar.
-*/
-
+/* body styling */
 body {
   font-family: Arial, sans-serif;
-  background-color: skyblue;
   color: #374151;
 }
 
-/* Contoh styling untuk input */
+/* input styling */
 input[type="text"] {
   padding: 0.75rem;
   border-radius: 0.5rem;

@@ -27,20 +27,19 @@ export default function HomePage() {
   }, [city, apiKey]); // Jalankan ulang saat kota berubah
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-sky-300 p-4">
       <h1 className="text-3xl font-bold mb-6">Aplikasi Cuaca ☀️</h1>
 
-      {/* Input untuk mencari kota lain */}
       <input
         type="text"
         placeholder="Cari kota..."
         value={city}
         onChange={(e) => setCity(e.target.value)}
-        className="border p-2 rounded-md mb-4"
+        className="border p-2 rounded-md mb-4 bg-gray-100"
       />
 
       {weatherData ? (
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center max-w-sm">
+        <div className="bg-gray-100 rounded-lg shadow-lg p-8 text-center max-w-sm">
           <h2 className="text-2xl font-semibold">{weatherData.name}</h2>
           <p className="text-6xl font-extrabold my-4">
             {Math.round(weatherData.main.temp)}°C
