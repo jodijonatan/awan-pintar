@@ -7,6 +7,7 @@ export default function HomePage() {
   const [city, setCity] = useState("Jakarta");
   const [suggestion, setSuggestion] = useState("");
   const [formStatus, setFormStatus] = useState(""); // 'success' atau 'error'
+  const [isPopupVisible, setIsPopupVisible] = useState(false); // State untuk pop-up
   const apiKey = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY;
 
   useEffect(() => {
@@ -28,20 +29,35 @@ export default function HomePage() {
     fetchWeather();
   }, [city, apiKey]);
 
-  const handleSuggestionSubmit = (e) => {
+  const handleSuggestionSubmit = async (e) => {
     e.preventDefault();
     if (suggestion.trim() === "") {
       setFormStatus("error");
+      setTimeout(() => setFormStatus(""), 3000);
       return;
     }
 
-    // Di sini Anda bisa menambahkan logika untuk mengirim data ke server
-    // Misalnya menggunakan fetch(), axios, atau API Route di Next.js
-    // Untuk contoh ini, kita hanya akan menampilkan pesan sukses.
+    try {
+      const response = await fetch("https://formspree.io/f/xgvzbaaj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // Formspree membutuhkan data dalam format FormData atau JSON
+        body: JSON.stringify({ saran_pengguna: suggestion }),
+      });
 
-    console.log("Saran dari pengguna:", suggestion);
-    setFormStatus("success");
-    setSuggestion(""); // Reset input setelah dikirim
+      if (response.ok) {
+        setFormStatus("success");
+        setSuggestion("");
+        setIsPopupVisible(true); // Tampilkan pop-up
+      } else {
+        setFormStatus("error");
+      }
+    } catch (error) {
+      setFormStatus("error");
+      console.error("Gagal mengirim saran:", error);
+    }
 
     // Sembunyikan pesan status setelah beberapa detik
     setTimeout(() => {
@@ -50,7 +66,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row md:justify-between md:items-center min-h-screen bg-sky-300 py-12 px-6 gap-8">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center min-h-screen bg-sky-300 py-12 px-6 gap-8 relative">
       <div className="flex-grow flex-shrink w-full max-w-sm mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center">
           Aplikasi Cuaca ☀️
@@ -86,11 +102,12 @@ export default function HomePage() {
           <p>Memuat data cuaca...</p>
         )}
       </div>
-      {/* Formulir Saran */}
+      {/* Form Saran */}
       <div className="flex-grow flex-shrink w-full max-w-sm p-6 bg-gray-100 rounded-lg shadow-lg mx-auto">
         <h2 className="text-2xl font-semibold text-center">Saran</h2>
-        <h4 className="text-md font-regular mb-4 text-center">
-          Saran untuk perkembangan website ini dong
+        <h4 className="text-md font-regular mb-4 text-left">
+          Website ini sedang dalam tahap pengembangan. Kami sangat menghargai
+          setiap masukan Anda untuk fitur-fitur baru
         </h4>
         <form onSubmit={handleSuggestionSubmit} className="flex flex-col gap-4">
           <textarea
@@ -99,6 +116,7 @@ export default function HomePage() {
             placeholder="Saran kamu di sini..."
             rows="4"
             className="w-full p-3 border rounded-md resize-none focus:outline-none focus:ring-2 focus:ring-sky-500"
+            // Atribut `name` tidak lagi diperlukan untuk `fetch`
           ></textarea>
           <button
             type="submit"
@@ -107,17 +125,33 @@ export default function HomePage() {
             Kirim Saran
           </button>
         </form>
-        {formStatus === "success" && (
-          <p className="mt-4 text-green-600 text-center font-semibold">
-            Terima kasih atas saran Anda!
-          </p>
-        )}
         {formStatus === "error" && (
           <p className="mt-4 text-red-600 text-center font-semibold">
             Saran tidak boleh kosong.
           </p>
         )}
       </div>
+
+      {/* Pop-up Kustom */}
+      {isPopupVisible && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full text-center transform scale-100 transition-transform duration-300 ease-out">
+            <h3 className="text-2xl font-bold text-sky-600 mb-4">
+              Terima Kasih!
+            </h3>
+            <p className="text-gray-700 mb-6">
+              Saran kamu udah terkirim dan akan membantu kami dalam pengembangan
+              website
+            </p>
+            <button
+              onClick={() => setIsPopupVisible(false)}
+              className="bg-sky-500 text-white font-bold py-2 px-4 rounded-md hover:bg-sky-600 transition-colors"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
