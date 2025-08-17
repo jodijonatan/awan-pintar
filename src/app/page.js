@@ -76,14 +76,17 @@ export default function HomePage() {
         className="flex-grow flex-shrink w-full max-w-sm mx-auto"
         data-aos="fade-up"
       >
-        <h1 className="text-3xl font-bold mb-6 text-center">Awan Pintar ☀️</h1>
+        <h1 className="text-3xl font-bold mb-3 text-center">Awan Pintar ☀️</h1>
+        <p className="text-xl font-medium mb-2 text-center">
+          Cek cuaca terkini di kotamu
+        </p>
         {/* Input untuk mencari kota lain */}
         <input
           type="text"
           placeholder="Cari kota..."
           value={city}
           onChange={(e) => setCity(e.target.value)}
-          className="border p-2 rounded-md mb-4 bg-gray-100 w-full"
+          className="border p-2 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-gray-100 w-full"
         />
         {weatherData ? (
           <div className="bg-gray-100 rounded-lg shadow-lg p-8 text-center max-w-sm mb-8">
@@ -97,7 +100,7 @@ export default function HomePage() {
             <img
               src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
               alt="Weather icon"
-              className="mx-auto"
+              className="mx-auto bg-sky-500 rounded-full mt-2"
             />
             <div className="mt-4 text-gray-600">
               <p>Kelembapan: {weatherData.main.humidity}%</p>
