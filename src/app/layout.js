@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Weather App",
+  title: "Awan Pintar",
   description: "Simple weather app built with Next.js",
 };
 

@@ -66,11 +66,9 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row md:justify-between md:items-center min-h-screen bg-sky-300 py-12 px-6 gap-8 relative">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center min-h-screen bg-gradient-to-l from-sky-500 to-sky-300 py-12 px-6 gap-8 relative">
       <div className="flex-grow flex-shrink w-full max-w-sm mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-center">
-          Aplikasi Cuaca ☀️
-        </h1>
+        <h1 className="text-3xl font-bold mb-6 text-center">Awan Pintar ☀️</h1>
         {/* Input untuk mencari kota lain */}
         <input
           type="text"
