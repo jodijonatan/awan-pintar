@@ -71,7 +71,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-l py-16 from-sky-500 to-sky-300">
+    <div className="flex flex-col min-h-screen bg-gradient-to-l py-2 md:py-16 from-sky-500 to-sky-300">
       <div className="flex-grow flex flex-col md:flex-row md:justify-between md:items-center py-12 px-6 gap-8 relative">
         <div
           className="flex-grow flex-shrink w-full max-w-sm mx-auto"
