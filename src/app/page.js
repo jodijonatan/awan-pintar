@@ -165,7 +165,7 @@ export default function HomePage() {
                 className="bg-sky-500 text-white font-bold py-2 px-4 rounded-md hover:bg-sky-600 transition-colors cursor-pointer"
               >
                 Tutup
-              </button>
+              </button>w
             </div>
           </div>
         )}
