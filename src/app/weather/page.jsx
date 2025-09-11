@@ -143,12 +143,14 @@ export default function HomePage() {
               Kirim Saran
             </button>
           </form>
+
           {formStatus === "error" && (
             <p className="mt-4 text-red-600 text-center font-semibold">
               Saran tidak boleh kosong.
             </p>
           )}
         </div>
+
         {/* Pop-up */}
         {isPopupVisible && (
           <div className="fixed inset-0 bg-gray-800/70 flex items-center justify-center p-4 z-50">
@@ -165,7 +167,8 @@ export default function HomePage() {
                 className="bg-sky-500 text-white font-bold py-2 px-4 rounded-md hover:bg-sky-600 transition-colors cursor-pointer"
               >
                 Tutup
-              </button>w
+              </button>
+              w
             </div>
           </div>
         )}
