@@ -8,7 +8,7 @@ import { Search } from "lucide-react";
 
 export default function HomePage() {
   const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("Jakarta");
+  const [city, setCity] = useState("Medan");
   const [suggestion, setSuggestion] = useState("");
   const [formStatus, setFormStatus] = useState(""); // 'success' atau 'error'
   const [isPopupVisible, setIsPopupVisible] = useState(false); // State untuk pop-up
