@@ -15,7 +15,7 @@ export default function Navbar() {
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-x-8">
         <li className="cursor-pointer hover:underline text-black hover:text-sky-800 hover:scale-110 transition">
-          <a href="/">Home</a>
+          <a href="#home">Home</a>
         </li>
         <li className="cursor-pointer hover:underline text-black hover:text-sky-800 hover:scale-110 transition">
           <a href="#about">About</a>

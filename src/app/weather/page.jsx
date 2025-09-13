@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 // import Navbar from "src/components/Navbar";
+import { Search } from "lucide-react";
 
 export default function HomePage() {
   const [weatherData, setWeatherData] = useState(null);
@@ -87,13 +88,16 @@ export default function HomePage() {
             Cek cuaca terkini di kotamu dengan tampilan modern
           </p>
 
-          <input
-            type="text"
-            placeholder="Cari kota..."
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            className="border-none p-3 rounded-xl mb-6 w-full bg-white/20 backdrop-blur-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-300"
-          />
+          <div className="relative w-full mb-6">
+            <input
+              type="text"
+              placeholder="Cari kota..."
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="border-none p-3 pr-10 rounded-xl w-full bg-white/20 backdrop-blur-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-yellow-300"
+            />
+            <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-white/70 w-5 h-5" />
+          </div>
 
           {weatherData ? (
             <div className="bg-white/20 backdrop-blur-md rounded-2xl shadow-2xl p-8 text-center max-w-sm mx-auto border border-white/30 animate-fade-in">
@@ -128,11 +132,11 @@ export default function HomePage() {
           data-aos-delay="300"
         >
           <h2 className="text-2xl font-bold text-center mb-4 drop-shadow-md">
-            💡 Saran
+            Saran
           </h2>
           <p className="text-sm text-white/90 mb-6">
             Website ini sedang dalam tahap pengembangan. Kami sangat menghargai
-            setiap masukan kamu ✨
+            setiap masukan kamu
           </p>
           <form
             onSubmit={handleSuggestionSubmit}
@@ -149,7 +153,7 @@ export default function HomePage() {
               type="submit"
               className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold py-3 px-6 rounded-xl shadow-md hover:opacity-90 transition-all duration-300"
             >
-              🚀 Kirim Saran
+              Kirim Saran
             </button>
           </form>
 

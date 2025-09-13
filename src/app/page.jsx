@@ -6,7 +6,10 @@ export default function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col-reverse lg:flex-row justify-between items-center px-10 lg:px-32 py-12">
+      <section
+        id="home"
+        className="min-h-screen flex flex-col-reverse lg:flex-row justify-between items-center px-10 lg:px-32 py-12"
+      >
         {/* Text Content */}
         <div className="max-w-2xl space-y-6">
           <h1 className="text-5xl lg:text-6xl font-extrabold leading-16 drop-shadow-lg">
