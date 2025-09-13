@@ -8,7 +8,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section
         id="home"
-        className="min-h-screen flex flex-col-reverse lg:flex-row justify-between items-center px-10 lg:px-32 py-12"
+        className="min-h-screen flex flex-col-reverse lg:flex-row justify-between items-center px-10 lg:px-32 py-28"
       >
         {/* Text Content */}
         <div className="max-w-2xl space-y-6">
