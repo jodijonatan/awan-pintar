@@ -12,7 +12,7 @@ export default function HomePage() {
       >
         {/* Text Content */}
         <div className="max-w-2xl space-y-6">
-          <h1 className="text-5xl lg:text-6xl font-extrabold leading-16 drop-shadow-lg">
+          <h1 className="text-4xl leading-11 lg:text-6xl font-extrabold md:leading-16 drop-shadow-lg">
             Pantau Cuaca <span className="text-yellow-300">Real-Time</span> di
             Lokasi Kamu
           </h1>
@@ -53,7 +53,7 @@ export default function HomePage() {
         id="about"
         className="min-h-screen px-10 lg:px-32 py-20 bg-white text-sky-900"
       >
-        <h1 className="text-sm lg:text-5xl font-bold text-center mb-12">
+        <h1 className="text-2xl lg:text-5xl font-bold text-center mb-12">
           Tentang <span className="text-sky-500">Awan Pintar</span>
         </h1>
 
@@ -66,9 +66,7 @@ export default function HomePage() {
           </div>
           <div className="bg-sky-50 p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <h2 className="text-xl font-bold mb-2">📍 Lokasi Akurat</h2>
-            <p className="text-sky-700">
-              Deteksi lokasi otomatis dengan akurasi tinggi.
-            </p>
+            <p className="text-sky-700">Deteksi lokasi dengan akurast.</p>
           </div>
           <div className="bg-sky-50 p-6 rounded-2xl shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
             <h2 className="text-xl font-bold mb-2">🎨 UI Modern</h2>
